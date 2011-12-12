@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# ./membase_stats.py
 #
 # Copyright 2009-2011 AppFirst, Inc
 #
@@ -15,9 +17,12 @@
 # 
 
 
+############################################
+# This "test" allways return OK.
+# !!! Use it only for nagios graphs !!!
+########################################
 
-#!/usr/bin/env python
-# ./membase_stats.py
+
 
 import subprocess
 import getopt
@@ -101,7 +106,7 @@ class MembaseStats():
         except getopt.GetoptError, err:
             # print help information and exit:
             print str(err) # will print something like "option -a not recognized"
-            usage()
+            self.usage()
             sys.exit(2)
             
         self.prev_stats = {}
@@ -117,7 +122,7 @@ class MembaseStats():
         self.get_status()
         
         if self.list is True:
-            for k in self.self.d_stats.iterkeys():
+            for k in self.d_stats.iterkeys():
                 print k
             sys.exit(0)
         #
